@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     get 'index.html.erb' => 'devise/sessions#destroy'
     get 'home.html', to: 'devise/sessions#create'
   end
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
   get 'profile-:id', to: "pages#profile", as: :profile
   #resources :users

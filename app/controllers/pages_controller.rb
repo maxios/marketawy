@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
 
+before_action :authenticate_user!, except: [:index]
+
   def index
   	@resource = User.new
     if user_signed_in?
@@ -9,7 +11,6 @@ class PagesController < ApplicationController
 
   def home
     @post = Post.new
-    
   end
    
 
@@ -21,11 +22,9 @@ class PagesController < ApplicationController
   end
 
   def addjob
-
   end
 
   def settings
-
   end
  
   def resource_name

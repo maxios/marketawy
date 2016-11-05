@@ -20,6 +20,7 @@
                                     <div class="form-group">
 <!-- At Marketawy Checkbox Here -->
                                         <%= f.check_box :marketawy, id: 'AtMarketawy' %><label for="AtMarketawy" class="unselectable">&nbsp;At marketawy</label>
+                                        
 
                                     </div><!-- .form-group -->
                                 </div><!-- .pull-left -->
@@ -50,7 +51,7 @@
                                 <%end%>
 <!-- Post Name Here -->
                             <%= link_to post.user.fullname, profile_path(post.user_id), class: 'name' %>
-
+                            <%= 'at marketawy' if post.marketawy == true %>
 <!-- Post Content Here -->
                             <p class="content"><%= post.content %></p>
                         
@@ -68,6 +69,8 @@
                                 </div><!-- .edit -->
                                 <%end%>
                         </div><!-- .text -->
+
+                       
 
                         <!-- Clear Floa side effects -->
                         <div class="clearfix"></div>
