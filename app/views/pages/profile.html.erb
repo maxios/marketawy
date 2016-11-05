@@ -1,0 +1,183 @@
+
+     
+       <%= render 'layouts/navbar.html.erb' %>
+
+        
+        <!-- Header / Profile Basic Information --> 
+        <div id="header">
+            <div class="container">
+                
+                <div class="col-sm-3 col-xs-4">
+                    <div class="thumbnail">
+<!-- Profile Picture Here -->
+                        <img src="images/no_profile_picture.png" alt="">
+                    </div>
+                </div><!-- .col** -->
+                
+                <div class="col-sm-7 col-xs-8">
+<!-- User's Name Here -->
+                    <label class="name"><%= @user.fullname %></label>
+<!-- Job Title Here -->
+                    <label class="job"><%= "#{@user.jobtitle} / #{@user.jobrole}" %></label>
+
+                    <label class="about-title">About</label>
+<!-- About Paragraph Here -->
+                    <p class="about">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                    </p><!-- .about -->
+                </div><!-- .col** -->
+                
+                <div class="col-xs-12 right">
+                    <button class="btn btn-info" tabindex="0"><i class="fa fa-envelope">&nbsp;&nbsp;Message</i></button>
+                    <div class="btn-group hide">
+                        <button type="button" class="btn btn-default dropdown-toggle icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" tabindex="0"><i class="fa fa-cog icon-spin"></i></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Setting</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Log Out&nbsp;&nbsp;<span class="glyphicon glyphicon-log-out"></span></a></li>
+                            </ul><!-- .dropdown-menu -->
+                    </div><!-- .btn-group -->
+                </div><!-- .right -->
+                
+            </div><!-- .container -->
+        </div><!-- #header -->
+        
+        <div class="container-fluid" id="ProfileBody">
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-0" id="jobs">
+                    
+<!-- Add Job Button Here-->
+                    <button class="btn btn-primary" tabindex="0"><span class="fa fa-plus icon-spin"></span>&nbsp;Add Job</button>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <!-- Start of Job Block -->
+                    <div class="job" tabindex="0">
+                        <div class="thumbnail">
+<!-- Job Image Here -->
+                            <img src="images/marketing-2-md.jpg" alt="">
+                            
+                            <div class="caption">
+<!-- About Job Here-->
+                                <p>Soon ... <!-- <a href="#">More</a> --></p>
+<!-- Website Link -->
+                                <div class="website pull-left">
+                                    Website:&nbsp;<a href="#">http://www.example.com</a>
+                                </div>
+<!-- Social Media Links Here -->
+                                <div class="social pull-right">
+                                    <a href="#">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        <i class="fa fa-facebook fill" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        <i class="fa fa-twitter fill" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                        <i class="fa fa-google-plus fill" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                        <i class="fa fa-linkedin fill" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                        <i class="fa fa-youtube-play fill" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="#">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        <i class="fa fa-instagram fill" aria-hidden="true"></i>
+                                    </a>
+                                </div><!-- .links -->
+                                <!-- Clear Float side effects -->
+                                <div class="clearfix"></div>
+                            </div><!-- .caption -->
+                        </div><!-- .thumbnail -->
+                    </div><!-- End of Job Block -->
+                
+
+
+                    
+<!-- Load More Button Here-->
+                    <!-- Load More Button -->
+                    <!-- <button class="btn btn-default btn-lg full-width">Load More...</button> -->
+
+                </div><!-- #jobs -->
+                
+                <!-- Statues Column -->
+                <div class="col-sm-6 col-xs-7 statues-column">
+
+                    <!-- Write Somthing Textarea -->
+                    <div class="new-post">
+                            <%= form_for @post do |f| %>
+<!-- New Post textarea Here -->
+                                <%= f.text_area :content, class: 'form-control', id: 'textarea', placeholder: 'Write Something...', rows: '4' %>
+                            <div class="pull-left">
+                                <div class="form-group">
+<!-- At Marketawy Checkbox Here -->
+                                    <input type="checkbox" id="AtMarketawy"><label for="AtMarketawy" class="unselectable">&nbsp;At marketawy</label>
+                                </div><!-- .form-group -->
+                            </div><!-- .pull-left -->
+                            <div class="pull-right">
+<!-- Submit New Post Here -->
+                                    <%= f.submit :post, class: "btn btn-primary" %>
+                            </div><!-- .pull-right -->
+                            <!-- Clear Float side effect-->
+                            <div class="clearfix"></div>
+                        <% end %>
+                    </div><!-- .new-post -->
+                    
+                    
+                    
+                    
+                    <% Post.all.reverse.each do |post| %>
+                    <% if @user == post.user %>
+                    <!-- Start Of Statue Block -->
+                    <div class="post" tabindex="0">
+                            <div class="picture">
+<!-- Post Picture Here -->
+                                <img src="images/logo_shape.png" alt="">
+                            </div>
+
+                        <div class="text">      
+<!-- Settings button of the Post -->
+                                <a href="#" class="edit-post-button pull-right"><i class="fa fa-pencil"></i></a>
+                              
+<!-- Post Name Here --> 
+                            <a href="#" class="name"><%= post.user.fullname %></a>
+<!-- Post Content Here -->
+                            <p class="content"><%= post.content %></p>
+                        
+
+                                <div class="edit">
+                                    <% @post_to_update = post %>
+                                    <%= form_for @post_to_update do |f| %>
+<!-- Edit Post Textarea Here -->
+                                    <%= f.text_area :content, class: 'form-control', id: 'textarea', placeholder: 'Write Something...', rows: '4' %>
+<!-- Submit Edit Post Button Here-->
+                                    <%= f.submit :post, class: "btn btn-primary pull-right" %>
+
+                                    <% end %>
+                                </div><!-- .edit -->
+                        </div><!-- .text -->
+
+                        <!-- Clear Floa side effects -->
+                        <div class="clearfix"></div>
+                    </div><!-- End Of statue Block -->
+                    <% end %>
+               <% end %>
+                    
+<!-- Load More Button Here-->
+                    <!-- Load More Button -->
+                  <!--   <button class="btn btn-default btn-lg full-width">Load More...</button> -->
+
+                </div><!-- .statues-column -->
+            </div>
+        </div>

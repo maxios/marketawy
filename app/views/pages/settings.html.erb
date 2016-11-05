@@ -1,0 +1,66 @@
+
+     
+
+        <%= render 'layouts/navbar.html.erb' %>
+
+        
+        <div id="Settings">
+            <div class="container">
+                    <div class="col-md-6 col-sm-9 col-md-offset-4 col-sm-offset-3">
+                        <div class="page-header">
+                            <h1>Settings</h1>          
+                        </div>
+<!-- Add Job Form Here -->
+                        <form>
+                            <div class="form-group">
+                                <label for="Email">Your Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-at"></i></span>
+<!-- Email Input Here -->
+                                    <!-- Put the value of the current email address -->
+                                    <input type="text" id="Email" class="form-control" value="">
+                                </div><!-- .input-group -->
+                            </div><!-- .form-group -->
+
+                            <hr>
+                            
+                            <div class="form-group">
+                                <label for="Email" class="sr-only">Old Password</label>
+<!-- Old Password Input Here -->
+                                <input type="password" id="oldPassword" class="form-control" placeholder="Old Pasword">
+                            </div><!-- .form-group -->
+                            
+                            <br>
+                            
+                            <div class="form-group">
+                                <label for="NewPassword" class="sr-only">New Password</label>
+<!-- New Password Input Here -->
+                                <input type="password" id="NewPassword" class="form-control" placeholder="New Pasword">
+                            </div><!-- .form-group -->
+                            
+                            <div class="form-group">
+                                <label for="RetypeNewPassword" class="sr-only">Retype New Password</label>
+<!-- Retype New Password Input Here -->
+                                <input type="password" id="RetypeNewPassword" class="form-control" placeholder="Retype the New Pasword">
+                            </div><!-- .form-group -->
+
+                            <hr>
+<!-- Image Input Here -->                            
+                            <div class="form-group">
+                                <label for="ImageInput">Upload New Pictre Profile</label>
+                                <input type="file" id="ImageInput" class="form-control">
+                            </div>
+<!-- Image Preview Here -->
+                            <div class="thumbnail">
+                                <img src="#" alt="No Image Selected" id="ImagePreview" class="form-control">
+                            </div>
+                            
+                            <hr>
+                            
+                            <button class="btn btn-primary btn-lg full-width">Submit</button>
+                        </form>
+                    </div><!-- .col** -->
+            </div><!-- .container -->
+        </div><!-- #Settings -->
+        
+        

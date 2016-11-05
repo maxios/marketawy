@@ -1,0 +1,29 @@
+        <!-- Statues -->
+        <div id="wall">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 col-sm-offset-2 col-xs-12 statues-column">
+
+                        <!-- Write Somthing Textarea -->
+                        <div class="new-post">
+                        <p id="notice"><%= notice %></p>
+                            <%= form_for @post do |f| %>
+<!-- New Post textarea Here -->
+                                
+                                <%= f.text_area :content, class: 'form-control', id: 'textarea', placeholder: 'Write Something...', rows: '4' %>
+                                <div class="pull-left">
+                                    <div class="form-group">
+<!-- At Marketawy Checkbox Here -->
+                                        <%= f.check_box :marketawy, id: 'AtMarketawy' %><label for="AtMarketawy" class="unselectable">&nbsp;At marketawy</label>
+
+                                    </div><!-- .form-group -->
+                                </div><!-- .pull-left -->
+                                <div class="pull-right">
+<!-- Submit New Post Here -->
+                                    <%= f.submit :post, class: "btn btn-primary" %>
+                                </div><!-- .pull-right -->
+                                <!-- Clear Float side effect-->
+                                <div class="clearfix"></div>
+                            <% end %>
+                        </div><!-- .new-post -->
+

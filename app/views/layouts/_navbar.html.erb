@@ -1,0 +1,86 @@
+<% unless user_signed_in? %>
+               <%= render 'layouts/sign_in_navbar.html.erb' %>
+    <% else %>
+     <!-- Navbar -->
+        <nav class="navbar navbar-default" id="navbar">
+            <div class="container-fluid">
+                
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <!-- Toggle Button -->
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Tools" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> <!-- .navbar-toggle -->
+
+                    <!-- Brand Logo -->
+                    <a href="home" class="navbar-brand">
+                        <img src="images/logo_shape_58x52.png" class="logo-shape" alt="">
+                        <img src="images/logo_text_141x26.png" class="logo-text" alt="">
+                    </a><!-- .navbar-brand -->
+                </div><!-- .navbar-header -->
+                
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="Tools">
+<!-- Search Form-->
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <label for="search" class="sr-only">Search</label>
+                            <div class="input-group">
+<!-- Search Input -->
+                                <input type="text" class="form-control" name="search" id="search" placeholder="Search for People...">
+
+                                <span class="input-group-btn">
+<!-- Search Button -->
+                                    <button class="btn btn-default"><i class="fa fa-search"></i></button>
+                                </span><!-- .input-gropu-btn -->
+                            </div><!-- .input-group -->
+                        </div><!-- .form-group -->
+                    </form><!-- search form -->
+
+                    <!-- Add button group -->
+                    <!-- <div class="btn-group pull-left">
+                       
+                        <button type="button" class="btn btn-info dropdown-toggle add" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-plus icon-spin" aria-hidden="true"></i>&nbsp;New</button>
+                       
+                        <ul class="dropdown-menu">
+                            <li><a href="addjob.html">Job</a></li>
+
+                        <li><a href="addblog.html">Blog</a></li>
+
+                        </ul>
+                    </div> -->
+
+                    <!-- Settings Button -->
+                    <div class="btn-group pull-right">
+                        <button type="button" class="btn btn-default dropdown-toggle icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog icon-spin"></i></button>
+                            <!-- setting dropdown button -->
+                            <ul class="dropdown-menu">
+                                <li><a href="settings">Setting</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+
+                                <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %><i class="fa fa-log-out"></i></li>
+                            </ul><!-- .dropdown-menu -->
+                    </div><!-- .btn-group -->
+                    
+                    <!-- Home Button -->
+                    <a href="home" class="home pull-right"><i class="fa fa-home"></i></a>
+
+                    <!-- User Info -->
+                    <a href="profile" class="user-info pull-right">
+                        <span class="profile-picture">
+<!-- Profile Picture Here -->
+                            <img src="images/logo.png" alt=""> 
+                        </span><!-- .thumbnail -->
+<!-- Full Name Here -->
+                        <div class="name"><%= current_user.fullname %></div>
+                    </a><!-- .user-info -->
+
+                </div><!-- /.navbar-collapse -->                    
+            </div><!-- .container -->
+        </nav><!-- .navbar .navbar-default -->
+<% end %>

@@ -1,0 +1,86 @@
+
+     
+       <%= render 'layouts/navbar.html.erb' %>
+
+        
+        <!-- Statues -->
+        <div id="wall">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 col-sm-offset-2 col-xs-12 statues-column">
+
+                        <!-- Write Somthing Textarea -->
+                        <div class="new-post">
+                        <p id="notice"><%= notice %></p>
+                            <%= form_for @post do |f| %>
+<!-- New Post textarea Here -->
+                                
+                                <%= f.text_area :content, class: 'form-control', id: 'textarea', placeholder: 'Write Something...', rows: '4' %>
+                                <div class="pull-left">
+                                    <div class="form-group">
+<!-- At Marketawy Checkbox Here -->
+                                        <%= f.check_box :marketawy, id: 'AtMarketawy' %><label for="AtMarketawy" class="unselectable">&nbsp;At marketawy</label>
+
+                                    </div><!-- .form-group -->
+                                </div><!-- .pull-left -->
+                                <div class="pull-right">
+<!-- Submit New Post Here -->
+                                    <%= f.submit :post, class: "btn btn-primary" %>
+                                </div><!-- .pull-right -->
+                                <!-- Clear Float side effect-->
+                                <div class="clearfix"></div>
+                            <% end %>
+                        </div><!-- .new-post -->
+
+<!-- Start Of Statue Blocks -->
+                        
+                        <% Post.all.reverse.each do |post| %>
+                        
+                    <!-- Start Of Statue Block -->
+                    <div class="post" tabindex="0">
+                            <div class="picture">
+<!-- Post Picture Here -->
+                                <img src="images/logo_shape.png" alt="">
+                            </div>
+
+                        <div class="text">      
+<!-- Settings button of the Post -->
+                                <%if current_user == post.user %>
+                                <a href="#" class="edit-post-button pull-right"><i class="fa fa-pencil"></i></a>
+                                <%end%>
+<!-- Post Name Here -->
+                            <%= link_to post.user.fullname, profile_path(post.user_id), class: 'name' %>
+
+<!-- Post Content Here -->
+                            <p class="content"><%= post.content %></p>
+                        
+                            <% if post.user == current_user %>
+                                <div class="edit">
+                                    <% @post_to_update = post %>
+                                    <%= form_for @post_to_update do |f| %>
+<!-- Edit Post Textarea Here -->
+                                    <%= f.text_area :content, class: 'form-control', id: 'textarea', placeholder: 'Write Something...', rows: '4' %>
+<!-- Submit Edit Post Button Here-->
+                                    <%= f.submit 'edit', class: "btn btn-primary pull-right" %>
+
+                                    <% end %>
+
+                                </div><!-- .edit -->
+                                <%end%>
+                        </div><!-- .text -->
+
+                        <!-- Clear Floa side effects -->
+                        <div class="clearfix"></div>
+                    </div><!-- End Of statue Block -->
+                    
+               <% end %>
+                        
+
+                    </div><!-- .col** -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- #wall -->
+        
+        
+  
+        
