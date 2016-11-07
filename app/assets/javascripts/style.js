@@ -68,19 +68,29 @@ $('.delete-post-button').click(function (e) {
 $('.edit-post-button').click(function (e) {
     e.preventDefault(); // prevent "#" href event
     
-    $(this).nextAll('.content').slideToggle();
+    $(this).nextAll('p').slideToggle();
     $(this).nextAll('.edit').slideToggle();
 });
-
-// Show/Hide loginBlock
-$('#forgotPass').click(function () {
-    alert("test");
-    $("#loginBlock").hide();
+    
+// Show/Hide Login/ForgotPass boxes
+$('#forgotPassLink').click(function (e) {
+    e.preventDefault(); // prevent "#" href event
+    
+    $("#loginForm").slideUp(300, function () {
+        $("#forgotForm").slideDown();
+    });
+});
+$('#loginLink').click(function (e) {
+    e.preventDefault(); // prevent "#" href event
+    
+    $("#forgotForm").slideUp(300, function () {
+        $("#loginForm").slideDown();
+    });
 });
 
 // Auto Resizing all Textarea
-$('textarea').autoResize({
-    maxHeight: '300px'
+$('textarea').each(function () {    
+    $(this).autoResize({ maxHeight: '300px' });
 });
     
 });//document ready

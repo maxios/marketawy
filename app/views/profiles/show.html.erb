@@ -18,9 +18,9 @@
                 
                 <div class="col-sm-7 col-xs-8">
 <!-- User's Name Here -->
-                    <label class="name"><%= @profile.user.fullname %></label>
+                    <label class="name"><%= @user.fullname %></label>
 <!-- Job Title Here -->
-                    <label class="job"><%= "#{@profile.user.jobtitle} / #{@profile.user.jobrole}" %></label>
+                    <label class="job"><%= "#{@user.jobtitle} / #{@user.jobrole}" %></label>
 
                     <label class="about-title">About</label>
 <!-- About Paragraph Here -->
@@ -49,8 +49,10 @@
                 <div class="col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-0" id="jobs">
                     
 <!-- Add Job Button Here-->
-                    <%= link_to 'Add Project', new_profile_project_path(@profile.id), class: 'btn btn-primary', tabindex: '0'%>
-                    	<!-- <span class="fa fa-plus icon-spin"></span> -->
+                    <% if @profile.id == @user.id %>
+                        <%= link_to 'Add Project', new_profile_project_path(@profile.id), class: 'btn btn-primary', tabindex: '0'%>
+                        	<!-- <span class="fa fa-plus icon-spin"></span> -->
+                    <% end %>
                    
                     
                     

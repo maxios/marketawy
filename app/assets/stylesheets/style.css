@@ -12,6 +12,11 @@ html,body
     margin: 4px 0 0 4px;
 }
 
+#forgotForm
+{
+    display: none;
+}
+
 /* Landing Secion */
 #Hero
 {
@@ -212,13 +217,16 @@ footer
 {
     border-left: 1px solid #ddd;
 }
-
+.new-post textarea
+{
+    min-height: 100px;
+}
 .post
 {
     width: 100%;
     display: block;
     position: relative;
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 30px;
     border-radius: 3px;
     border: 1px solid transparent;
@@ -248,8 +256,9 @@ footer
 }
 .post .star.icon
 {
-    float: right;
+    float: left;
     display: none;
+    margin-right: 8px;
 }
 .post .fa-pencil,
 .post .fa-times
@@ -288,9 +297,6 @@ footer
 .post.hot .star.icon
 {
     display: flex;
-    position: absolute;
-    top: -10px;
-    right: -10px;
 }
 .post.hot .picture
 {
@@ -310,7 +316,57 @@ footer
 {
     display: none;
 }
-
+.comment
+{
+    float: right;
+    width: 88%;
+    border-top: 1px solid #ddd;
+    padding: 3px 0;
+}
+.comment .comment-picture
+{
+    width: 7%;
+    float: left;
+    padding: 2px;
+    border: 1px solid #E73F7D;
+    background-color: #fff;
+    border-radius: 3px;
+}
+.comment .comment-picture img
+{
+    width: 100%;
+    height: auto;   
+    border-radius: 3px;
+}
+.comment .comment-text
+{
+    float: right;
+    width: 93%;
+}
+.comment .comment-name
+{
+    display: inline-block;
+    font-size: 13px;
+    padding-left: 3px;
+    margin-bottom: 0;
+    text-decoration: none;
+}
+.comment .comment-content
+{
+    padding: 0 5px;
+    font-size: 12px;
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
+.comment .fa
+{
+    color: #E73F7D !important;
+}
+.new-comment
+{
+    float: right;
+    width: 88%;
+}
 #header
 {
     width: 100%;

@@ -147,8 +147,10 @@ textarea
 {
     resize: none;
     overflow-y: hidden;
-    min-height: 100px;
     margin: 5px 0;
 }
 
-*{outline: 0;}
+*
+{
+    outline: 0;
+}

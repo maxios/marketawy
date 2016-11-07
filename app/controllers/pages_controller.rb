@@ -11,7 +11,7 @@ before_action :authenticate_user!, except: [:index]
 
   def home
     @post = Post.new
-
+    @user = @post.user_id
   end
 
    def destroy

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  root to: 'pages#index'
+  get 'home', to: "pages#home", as: :home
+  get 'addjob', to: 'pages#addjob', as: :addjob
+  get 'settings', to: 'pages#settings', as: :settings
   
   devise_for :users do
       get 'index.html.erb' => 'devise/sessions#destroy'
@@ -20,10 +24,7 @@ Rails.application.routes.draw do
 
   #resources :users
 
-  root to: 'pages#index'
-  get 'home', to: "pages#home", as: :home
-  get 'addjob', to: 'pages#addjob', as: :addjob
-  get 'settings', to: 'pages#settings', as: :settings
+  
 
   
   
