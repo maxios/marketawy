@@ -56,8 +56,11 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post.destroy
-    redirect_to home_path
+     @profile.destroy
+    respond_to do |format|
+      format.html { redirect_to home_path, notice: 'Profile was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private

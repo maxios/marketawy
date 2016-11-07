@@ -1,0 +1,127 @@
+
+
+
+    <%= render 'layouts/navbar.html.erb' %>
+        
+        <div id="AddJobForm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-9 col-sm-offset-1">
+                        <div class="page-header">
+                            <h1>Add New Job</h1>          
+                        </div>
+<!-- Add Job Form Here -->
+						<%= form_for ([@profile, @profile.projects.build]) do |f| %>
+  						<% if @project.errors.any? %>
+                         	<div id="error_explanation">
+						      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+						      <ul>
+							     <% @project.errors.full_messages.each do |message| %>
+							     	<li><%= message %></li>
+							     <% end %>
+						      </ul>
+						    </div>
+						<% end %>
+
+                            <div class="form-group">
+                                <label for="ImageInput">Upload Image</label>
+                                <input type="file" id="ImageInput" class="form-control">
+                            </div>
+
+                                <div class="thumbnail">
+                                    <img src="#" alt="No Image Selected" id="ImagePreview" class="form-control">
+                                </div>
+                            
+                            <hr>
+                            
+                            <div class="form-group">
+                                <label for="About" class="sr-only">About</label>
+                                <%= f.text_area :about, class: 'form-control', id: 'About', placeholder: 'About...' %>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="Facebook" class="sr-only">facebook</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
+<!-- facebook link Input Here -->
+                                    
+                                    <%= f.url_field :fb, id: 'Facebook', class: 'form-control', placeholder: "facebook link" %>
+                                </div><!-- .input-group -->
+                            </div><!-- .form-group -->
+
+                            <div class="form-group">
+                                <label for="Twitter" class="sr-only">twitter</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
+<!-- twitter link Input Here -->
+                                    <%= f.url_field :twitter, id: 'Twitter', class: 'form-control', placeholder: "twitter link" %>
+                                </div><!-- .input-group -->
+                            </div><!-- .form-group -->
+
+                            <div class="form-group">
+                                <label for="LinkedIn" class="sr-only">Linked in</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-linkedin"></i></span>
+<!-- Linked in link Input Here -->
+                                   <%= f.url_field :linkedin, id: 'Linkedin', class: 'form-control', placeholder: "linkedin link" %>
+                                </div><!-- .input-group -->
+                            </div><!-- .form-group -->
+
+                            <div class="form-group">
+                                <label for="GooglePlus" class="sr-only">Google +</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-google-plus"></i></span>
+<!-- Google+ link Input Here -->
+                                    <%= f.url_field :plus, id: 'Googleplus', class: 'form-control', placeholder: "google+ link" %>
+                                </div><!-- .input-group -->
+                            </div><!-- .form-group -->
+
+                            <div class="form-group">
+                                <label for="Instagram" class="sr-only">instagram</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-instagram"></i></span>
+<!-- instagram link Input Here -->
+                                    <%= f.url_field :insta, id: 'Instagram', class: 'form-control', placeholder: "instagram link" %>
+                                </div><!-- .input-group -->
+                            </div><!-- .form-group -->
+
+                            <div class="form-group">
+                                <label for="Youtube" class="sr-only">Youtube</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-youtube-play"></i></span>
+<!-- Facebook link Input Here -->
+                                    <%= f.url_field :youtube, id: 'Youtube', class: 'form-control', placeholder: "youtube link" %>
+                                </div><!-- .input-group -->
+                            </div><!-- .form-group -->
+
+                            <div class="form-group">
+                                <label for="Website" class="sr-only">Website</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+<!-- Facebook link Input Here -->
+                                   <%= f.url_field :website, id: 'Website', class: 'form-control', placeholder: "website link" %>
+                                </div><!-- .input-group -->
+                            </div><!-- .form-group -->
+
+                            <div class="form-group">
+                                <label for="Other" class="sr-only">Other</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">Other</span>
+<!-- Facebook link Input Here -->
+                                   <%= f.url_field :other_link, id: 'Other', class: 'form-control', placeholder: "other link" %>
+                                </div><!-- .input-group -->
+                            </div><!-- .form-group -->
+
+                            <hr>
+                            
+                            <button class="btn btn-primary btn-lg full-width"><%= f.submit %></button>
+
+
+                        <%end%>
+                    </div><!-- .col** -->
+                </div><!-- .row -->
+            </div><!-- .container -->
+        </div><!-- #AddJobForm -->
+        
+ 

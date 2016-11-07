@@ -1,0 +1,39 @@
+ <!-- Start Of Statue Block -->
+                    <div class="post" tabindex="0">
+                            <div class="picture">
+<!-- Post Picture Here -->
+                                
+                                <%= image_tag 'logo_shape.png' %>
+                            </div>
+
+                        <div class="text">      
+<!-- Settings button of the Post -->
+                                <%if current_user == post.user %>
+                                <a href="#" class="edit-post-button pull-right"><i class="fa fa-pencil"></i></a>
+                                <%end%>
+<!-- Post Name Here -->
+                            <%= link_to post.user.fullname, profile_path(post.user_id), class: 'name' %>
+                            <%= 'at marketawy' if post.marketawy == true %>
+<!-- Post Content Here -->
+                            <p class="content"><%= post.content %></p>
+                        
+                            <% if post.user == current_user %>
+                                <div class="edit">
+                                    
+                                    <%= form_for post do |f| %>
+<!-- Edit Post Textarea Here -->
+                                    <%= f.text_area :content, class: 'form-control', id: 'textarea', placeholder: 'Write Something...', rows: '4' %>
+<!-- Submit Edit Post Button Here-->
+                                    <%= f.submit 'edit', class: "btn btn-primary pull-right" %>
+
+                                    <% end %>
+
+                                </div><!-- .edit -->
+                                <%end%>
+                        </div><!-- .text -->
+
+                       
+                         
+                        <!-- Clear Floa side effects -->
+                        <div class="clearfix"></div>
+                    </div><!-- End Of statue Block -->

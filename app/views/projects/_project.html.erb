@@ -1,0 +1,47 @@
+  <!-- Start of Job Block -->
+                    <div class="job" tabindex="0">
+                        <div class="thumbnail">
+<!-- Job Image Here -->
+                           
+                            <%= image_tag "marketing-2-md.jpg" %>
+                            
+                            <div class="caption">
+<!-- About Job Here-->
+                                <p><%= project.about %></p>
+<!-- Website Link -->
+                                <div class="website pull-left">
+                                    Website:&nbsp;<%= link_to project.website, project.website %>
+                                </div>
+<!-- Social Media Links Here -->
+                                <div class="social pull-right">
+
+                                    <a href="<%= project.fb %>">
+                                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                                        <i class="fa fa-facebook fill" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="<%= project.twitter %>">
+                                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                                        <i class="fa fa-twitter fill" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="<%= project.plus %>">
+                                        <i class="fa fa-google-plus" aria-hidden="true"></i>
+                                        <i class="fa fa-google-plus fill" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="<%= project.linkedin %>">
+                                        <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                        <i class="fa fa-linkedin fill" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="<%= project.youtube %>">
+                                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                        <i class="fa fa-youtube-play fill" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="<%= project.insta %>">
+                                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                                        <i class="fa fa-instagram fill" aria-hidden="true"></i>
+                                    </a>
+                                </div><!-- .links -->
+                                <!-- Clear Float side effects -->
+                                <div class="clearfix"></div>
+                            </div><!-- .caption -->
+                        </div><!-- .thumbnail -->
+                    </div><!-- End of Job Block -->

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161105220334) do
+ActiveRecord::Schema.define(version: 20161106215826) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -35,6 +35,23 @@ ActiveRecord::Schema.define(version: 20161105220334) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
+  create_table "projects", force: :cascade do |t|
+    t.text     "about"
+    t.string   "fb"
+    t.string   "twitter"
+    t.string   "linkedin"
+    t.string   "plus"
+    t.string   "insta"
+    t.string   "youtube"
+    t.string   "website"
+    t.string   "other_link"
+    t.integer  "profile_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "projects", ["profile_id"], name: "index_projects_on_profile_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

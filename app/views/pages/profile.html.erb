@@ -23,7 +23,7 @@
                     <label class="about-title">About</label>
 <!-- About Paragraph Here -->
                     <p class="about">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
                     </p><!-- .about -->
                 </div><!-- .col** -->
                 
@@ -149,13 +149,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                         <div class="text">      
 <!-- Settings button of the Post -->
                                 <a href="#" class="edit-post-button pull-right"><i class="fa fa-pencil"></i></a>
+                                <%= link_to "Destroy", post, method: :delete, class: 'delete-post-button pull-right', data: { confirm: 'Are you sure?' } %><i class="fa fa-times"></i>
+
+
                               
 <!-- Post Name Here --> 
                             <a href="#" class="name"><%= post.user.fullname %></a>
                             <%= 'at marketawy' if post.marketawy == true %>
 <!-- Post Content Here -->
                             <p class="content"><%= post.content %></p>
-                        
+                            
 
                                 <div class="edit">
                                     <% @post_to_update = post %>
@@ -177,7 +180,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                     
 <!-- Load More Button Here-->
                     <!-- Load More Button -->
-                  <!--   <button class="btn btn-default btn-lg full-width">Load More...</button> -->
+                    <!-- <button class="btn btn-default btn-lg full-width">Load More...</button> -->
 
                 </div><!-- .statues-column -->
             </div>

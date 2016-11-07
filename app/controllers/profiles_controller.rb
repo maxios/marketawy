@@ -10,8 +10,10 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @profile = Profile.find(profile_params)
-    redirect_to profile_path
+    @profile = Profile.find(params[:id])
+    @post = Post.new
+    @user = current_user
+    
   end
 
   # GET /profiles/new
@@ -73,6 +75,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:about, :user_id)
+      params.require(:user).permit(:id)
     end
 end

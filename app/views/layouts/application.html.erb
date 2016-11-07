@@ -15,17 +15,21 @@
         <meta name="theme-color" content="#ffffff">
 
         <!-- Bootstrap -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        
         
         <!-- FontAwesome -->
-        <link href="css/font-awesome.min.css" rel="stylesheet">
+        
 <!--        <script src="https://use.fontawesome.com/4a63ec049b.js"></script>-->
         
         <!-- Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
+        <%= stylesheet_link_tag    "font-awesome.min", media: "all", "data-turbolinks-track" => true %>
+        <%= stylesheet_link_tag    "bootstrap.min", media: "all", "data-turbolinks-track" => true %>
+        <%= stylesheet_link_tag    "style", media: "all", "data-turbolinks-track" => true %>
+
         
         <!-- Re-Styling Bootstrap Elements -->
-        <link href="css/re-style.css" rel="stylesheet">
+         <%= stylesheet_link_tag    "re-style", media: "all", "data-turbolinks-track" => true %>
+       
         
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,13 +49,16 @@
         </footer>
         
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+         <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js" %>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
+        
+        <%= javascript_include_tag "bootstrap.min.js" %>
         <!-- Include autoResize() function for textarea element -->
-        <script src="js/jquery.textareaAutoResize.js"></script>
+     
+        <%= javascript_include_tag "jquery.textareaAutoResize.js" %>
         <!-- Basic javascript and jquery codes for styling -->
-        <script src="js/style.js"></script>
+        <%= javascript_include_tag "style.js" %>
         
 </body>
 </html>

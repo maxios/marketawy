@@ -1,15 +1,23 @@
 Rails.application.routes.draw do
-  #resources :profiles, only: [:edit]
+  
   
   devise_for :users do
-    get 'index.html.erb' => 'devise/sessions#destroy'
-    get 'home.html', to: 'devise/sessions#create'
+      get 'index.html.erb' => 'devise/sessions#destroy'
+      get 'home.html', to: 'devise/sessions#create'
   end
   resources :posts do
-    resources :comments
+      resources :comments
+    end
+
+  post '/profiles/:profile_id/projects/new', to: 'projects#create'
+  get 'profiles/:profile_id/projects', to: 'projects#index', as: :projects
+  resources :profiles do
+    
+    resources :projects
+
+
   end
 
-  get 'profile-:id', to: "pages#profile", as: :profile
   #resources :users
 
   root to: 'pages#index'

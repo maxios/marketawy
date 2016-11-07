@@ -16,9 +16,10 @@
                     </button> <!-- .navbar-toggle -->
 
                     <!-- Brand Logo -->
-                    <a href="home" class="navbar-brand">
-                        <img src="images/logo_shape_58x52.png" class="logo-shape" alt="">
-                        <img src="images/logo_text_141x26.png" class="logo-text" alt="">
+                    <a href="<%=home_path%>" class="navbar-brand">
+                        
+                         <%= image_tag  'logo_shape_58x52.png' %>
+                          <%= image_tag  'logo_text_141x26.png' %>
                     </a><!-- .navbar-brand -->
                 </div><!-- .navbar-header -->
                 
@@ -58,7 +59,7 @@
                         <button type="button" class="btn btn-default dropdown-toggle icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog icon-spin"></i></button>
                             <!-- setting dropdown button -->
                             <ul class="dropdown-menu">
-                                <li><a href="settings">Setting</a></li>
+                                <li><%= link_to 'Settings', settings_path %></li>
                                 <li><a href="#">Another action</a></li>
                                 <li><a href="#">Something else here</a></li>
                                 <li role="separator" class="divider"></li>
@@ -68,13 +69,14 @@
                     </div><!-- .btn-group -->
                     
                     <!-- Home Button -->
-                    <a href="home" class="home pull-right"><i class="fa fa-home"></i></a>
+                    <a href="<%=home_path%>" class="home pull-right"><i class="fa fa-home"></i></a>
 
                     <!-- User Info -->
                     <a href="<%= profile_path(current_user.id) %>" class="user-info pull-right">
                         <span class="profile-picture">
 <!-- Profile Picture Here -->
-                            <img src="images/logo.png" alt=""> 
+                            
+                            <%= image_tag  'logo.png' %>
                         </span><!-- .thumbnail -->
 <!-- Full Name Here -->
                         <div class="name"><%= current_user.fullname %></div>

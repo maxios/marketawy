@@ -11,20 +11,22 @@ before_action :authenticate_user!, except: [:index]
 
   def home
     @post = Post.new
-  end
-   
 
-  def profile
-   # @profile_user = Profile.new(params[:user_id])
-   @post = Post.new
-   @user = User.find(params[:id])
-    
+  end
+
+   def destroy
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   def addjob
   end
 
   def settings
+    
   end
  
   def resource_name

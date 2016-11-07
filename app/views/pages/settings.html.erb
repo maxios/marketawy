@@ -11,14 +11,18 @@
                             <h1>Settings</h1>          
                         </div>
 <!-- Add Job Form Here -->
-                        <form>
+                        
+                        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                        <%= devise_error_messages! %>
+
                             <div class="form-group">
                                 <label for="Email">Your Email</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><i class="fa fa-at"></i></span>
 <!-- Email Input Here -->
                                     <!-- Put the value of the current email address -->
-                                    <input type="text" id="Email" class="form-control" value="">
+                                    
+                                    <%= f.email_field :email, id: 'Email', class: 'form-control', value: current_user.email %>
                                 </div><!-- .input-group -->
                             </div><!-- .form-group -->
 
@@ -27,7 +31,8 @@
                             <div class="form-group">
                                 <label for="Email" class="sr-only">Old Password</label>
 <!-- Old Password Input Here -->
-                                <input type="password" id="oldPassword" class="form-control" placeholder="Old Pasword">
+                                
+                                <%= f.password_field :current_password, id: 'oldPassword', class: 'form-control' %>
                             </div><!-- .form-group -->
                             
                             <br>
@@ -35,13 +40,15 @@
                             <div class="form-group">
                                 <label for="NewPassword" class="sr-only">New Password</label>
 <!-- New Password Input Here -->
-                                <input type="password" id="NewPassword" class="form-control" placeholder="New Pasword">
+                               
+                                <%= f.password_field :password, id: 'NewPassword', class: 'form-control' %>
                             </div><!-- .form-group -->
                             
                             <div class="form-group">
                                 <label for="RetypeNewPassword" class="sr-only">Retype New Password</label>
 <!-- Retype New Password Input Here -->
-                                <input type="password" id="RetypeNewPassword" class="form-control" placeholder="Retype the New Pasword">
+                               
+                                <%= f.password_field :password_confirmation, id: 'RetypeNewPassword', class: 'form-control' %>
                             </div><!-- .form-group -->
 
                             <hr>
@@ -56,9 +63,9 @@
                             </div>
                             
                             <hr>
-                            
-                            <button class="btn btn-primary btn-lg full-width">Submit</button>
-                        </form>
+                
+                            <%= f.submit 'Submit', class: "btn btn-primary btn-lg full-width"%>
+                        <% end %>
                     </div><!-- .col** -->
             </div><!-- .container -->
         </div><!-- #Settings -->

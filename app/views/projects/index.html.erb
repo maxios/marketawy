@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Projects</h1>
+<%= params %>
+<table>
+  <thead>
+    <tr>
+      <th>About</th>
+      <th>Fb</th>
+      <th>Twitter</th>
+      <th>Linkedin</th>
+      <th>Plus</th>
+      <th>Insta</th>
+      <th>Youtube</th>
+      <th>Website</th>
+      <th>Other link</th>
+      <th>Profile</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.about %></td>
+        <td><%= project.fb %></td>
+        <td><%= project.twitter %></td>
+        <td><%= project.linkedin %></td>
+        <td><%= project.plus %></td>
+        <td><%= project.insta %></td>
+        <td><%= project.youtube %></td>
+        <td><%= project.website %></td>
+        <td><%= project.other_link %></td>
+        <td><%= project.profile %></td>
+        <td><%= link_to 'Show', profile_projects_path %></td>
+       
+       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
