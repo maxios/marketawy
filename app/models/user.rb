@@ -4,9 +4,14 @@ class User < ActiveRecord::Base
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         after_create :build_profile
 
-   has_many :posts
+   has_many :posts, dependent: :destroy
    has_many :comments
-   has_one :profile
+   has_one :profile, dependent: :destroy
+
+   def build_profile
+   	Profile.create(user: self)
+   end
    
 end

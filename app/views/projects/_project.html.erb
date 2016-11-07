@@ -8,10 +8,11 @@
                             <div class="caption">
 <!-- About Job Here-->
                                 <p><%= project.about %></p>
-<!-- Website Link -->
+<!-- Website Link -->           <% if project.website? %>
                                 <div class="website pull-left">
                                     Website:&nbsp;<%= link_to project.website, project.website %>
                                 </div>
+                                <% end %>
 <!-- Social Media Links Here -->
                                 <div class="social pull-right">
 
