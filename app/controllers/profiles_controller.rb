@@ -12,7 +12,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @post = Post.new
-    @user = current_user
+    @user = @profile.user
     
   end
 

@@ -1,0 +1,11 @@
+<h1> all users </h1>
+	
+	<ul>
+<% @user.each do |user| %>
+	<li>
+		<%= user.fullname %>
+		<%= link_to 'show', profile_path(user.id) %>
+		<%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %>
+	</li>
+<% end %>
+	</ul>

@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'home', to: "pages#home", as: :home
   get 'addjob', to: 'pages#addjob', as: :addjob
   get 'settings', to: 'pages#settings', as: :settings
+  get 'adminPanel', to: 'admins#index', as: :panel
   
+  get 'users/edit/:id', to: 'users#edit', as: :edit_user
+   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   devise_for :users do
       get 'index.html.erb' => 'devise/sessions#destroy'
       get 'home.html', to: 'devise/sessions#create'
@@ -16,11 +19,10 @@ Rails.application.routes.draw do
   post '/profiles/:profile_id/projects/new', to: 'projects#create'
   get 'profiles/:profile_id/projects', to: 'projects#index', as: :projects
   resources :profiles do
-    
+  
     resources :projects
-
-
   end
+
 
   #resources :users
 
