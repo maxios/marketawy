@@ -2,10 +2,12 @@
 	
 	<ul>
 <% @user.each do |user| %>
+<% unless user.admin == true %>
 	<li>
 		<%= user.fullname %>
 		<%= link_to 'show', profile_path(user.id) %>
-		<%= link_to "Destroy", admin_destroy_user_path(user), method: :delete, data: { confirm: "You sure?" } %>
+		<%= link_to "Destroy", admin_destroy_user_path(user.id), method: :delete, data: { confirm: "You sure?" } %>
 	</li>
+<% end %>
 <% end %>
 	</ul>

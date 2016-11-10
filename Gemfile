@@ -27,6 +27,7 @@ gem 'devise'
 gem 'awesome_print'
 gem 'carrierwave'
 gem 'fog'
+gem 'acts_as_commentable'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -5,8 +5,8 @@ class CommentsController < ApplicationController
 	end
 
 	def create
-		@post = Post.find(params[:post_id])
-	  	@comment = @post.comments.create(comment_params)
+		@commentable = Post.find(params[:post_id])
+	  	@comment = @commentable.comments.create(comment_params)
 	 	@comment.user_id = current_user.id #or whatever is you session name
 	  
 	  	if @comment.save
@@ -27,5 +27,10 @@ class CommentsController < ApplicationController
 	def destroy
 
 	end
+
+def coment_params
+	params.require(:comments).permit(:post_id, :user_id, :comment, :title)
+end
+	
 
 end

@@ -63,6 +63,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def add_new_comment
+    post = Post.find(params[:id])
+    @commentToAdd = Comment.new(comment_params)
+    @commentToAdd.user_id = current_user.id
+    post.comments << @commentToAdd
+    redirect_to home_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -72,5 +80,9 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:content, :user, :marketawy)
+    end
+
+    def comment_params
+      params.require(:comment).permit(:comment, :user_id, :post_id)
     end
 end

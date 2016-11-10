@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index]
 
   def index
   	@resource = User.new
@@ -12,6 +12,7 @@ before_action :authenticate_user!, except: [:index]
   def home
     @post = Post.new
     @user = @post.user_id
+    @comment = Comment.new  
   end
 
    def destroy
@@ -45,8 +46,26 @@ before_action :authenticate_user!, except: [:index]
   @user = User.create(params[:user])
   end
 
-def post_params
-      params.require(:post).permit(:content, :user, :marketawy)
-    end
-  
+  def post_params
+    params.require(:post).permit(:content, :user, :marketawy)
+  end
+
+  def add_comment
+   
+    post_id = params[:post_id]
+    # Get the object that you want to comment
+
+    post = Comment.find_by post_id: post_id
+
+    # Create a comment with the user submitted content
+    comment = Comment.new(params[:comment])
+    # Assign this comment to the logged in user
+    comment.user_id = session[:user].id
+
+    # Add the comment
+    post.comments << comment
+
+    redirect_to home_path
+  end
 end
+

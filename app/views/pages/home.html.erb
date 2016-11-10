@@ -84,7 +84,7 @@
                                 <% end %>
                             </div><!-- .text -->
                             
-
+                    <% post.comments.each do |comment| %>
                 <!-- Comment Block -->
                             <div class="comment">
                                 <div class="comment-picture">
@@ -98,12 +98,10 @@
                                     <a href="#" class="edit-post-button pull-right"><i class="fa fa-pencil"></i></a>
                                     <a href="#" class="delete-post-button pull-right" data-message="Do you realy want to DELETE this Comment ?"><i class="fa fa-times"></i></a>
 
+<!-- Comment Name Here -->          <% @commentuser = User.find(comment.user_id) %>
+                                    <a class="comment-name"><%= @commentuser.fullname %></a>
 <!-- Comment Name Here -->
-                                    <a class="comment-name">Full Name</a>
-<!-- Comment Name Here -->
-                                    <p class="comment-content">
-olore magna alitation ullamco laboris nisi ut aliquip ex ea commodo cos aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugi
-                                    </p><!-- .comment-content -->
+                                    <p class="comment-content"><%= comment.comment %></p><!-- .comment-content -->
 
                                     <div class="edit">
 <!-- Edit Comment Textarea Here -->
@@ -115,24 +113,25 @@ olore magna alitation ullamco laboris nisi ut aliquip ex ea commodo cos aute iru
                                 </div><!-- .text -->
                             </div><!-- .comment -->
 
-                            <div class="new-comment">
+                    <% end %> <!-- comment loop -->
+                         <%= form_tag "/posts/add_new_comment" do %>
+                                <%= hidden_field_tag "id", post.id %>
                                 <div class="form-group-sm">
-<!-- New Comment Textarea Here -->
-                                    <textarea class="form-control" placeholder="Throw a comment.." rows="1"></textarea>
+                                <%= text_area_tag "comment[comment]", "", class: 'form-control', placeholder: 'Throw a comment..', rows: '1' %>
                                 </div>
-<!-- Submit New Comment Here -->
-                                <button type="button" class="btn btn-primary btn-xs pull-right">Comment</button>
-                            </div><!-- .new-comment -->
-                        
-                        
+                                <%= submit_tag "Post Comment", class: 'btn btn-primary btn-xs pull-right' %>
+                              <% end %>
+                            
+                        <div class="clearfix"></div>
+                    </div>    
+
+
+        <% end %> <!-- post loop -->
 <!-- Load More Button Here-->
                         <!-- Load More Button -->
                         <button class="btn btn-default btn-sm full-width">Load More...</button>
-                       
-
                     </div><!-- .col** -->
 
-                    <% end %>
 
                 </div><!-- .row -->
             </div><!-- .container -->

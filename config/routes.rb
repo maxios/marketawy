@@ -6,15 +6,16 @@ Rails.application.routes.draw do
   get 'settings', to: 'pages#settings', as: :settings
   get 'adminPanel', to: 'admins#index', as: :panel
   
+    match "/posts/add_new_comment" => "posts#add_new_comment", :as => "add_new_comment_to_posts", :via => [:post]
+
   get 'users/edit/:id', to: 'users#edit', as: :edit_user
-   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
+  
+   get 'users/:id' => 'users#destroy', :via => [:user], :as => :admin_destroy_user
   devise_for :users do
       get 'index.html.erb' => 'devise/sessions#destroy'
       get 'home.html', to: 'devise/sessions#create'
   end
-  resources :posts do
-      resources :comments
-    end
+  resources :posts 
 
   post '/profiles/:profile_id/projects/new', to: 'projects#create'
   get 'profiles/:profile_id/projects', to: 'projects#index', as: :projects

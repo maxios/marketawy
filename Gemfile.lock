@@ -37,6 +37,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_commentable (4.0.2)
     arel (6.0.3)
     awesome_print (1.7.0)
     bcrypt (3.1.11)
@@ -309,6 +310,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_commentable
   awesome_print
   byebug
   carrierwave
