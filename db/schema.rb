@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -14,81 +13,75 @@
 ActiveRecord::Schema.define(version: 20161109204437) do
 
   create_table "comments", force: :cascade do |t|
-    t.string   "title",            limit: 50, default: ""
-    t.text     "comment"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.integer  "user_id"
-    t.string   "role",                        default: "comments"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "post_id"
+    t.string "title", limit: 50, default: ""
+    t.text "comment"
+    t.string "commentable_type"
+    t.integer "commentable_id"
+    t.integer "user_id"
+    t.string "role", default: "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "post_id"
+    t.index ["commentable_id"], name: "index_comments_on_commentable_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["commentable_type"], name: "index_comments_on_commentable_type"
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
-
-  add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id"
-  add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type"
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "posts", force: :cascade do |t|
-    t.text     "content"
-    t.boolean  "marketawy"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.text "content"
+    t.boolean "marketawy"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
-
-  add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "profiles", force: :cascade do |t|
-    t.text     "about"
-    t.integer  "user_id"
+    t.text "about"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
-
-  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "projects", force: :cascade do |t|
-    t.text     "about"
-    t.string   "fb"
-    t.string   "twitter"
-    t.string   "linkedin"
-    t.string   "plus"
-    t.string   "insta"
-    t.string   "youtube"
-    t.string   "website"
-    t.string   "other_link"
-    t.integer  "profile_id"
+    t.text "about"
+    t.string "fb"
+    t.string "twitter"
+    t.string "linkedin"
+    t.string "plus"
+    t.string "insta"
+    t.string "youtube"
+    t.string "website"
+    t.string "other_link"
+    t.integer "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["profile_id"], name: "index_projects_on_profile_id"
   end
-
-  add_index "projects", ["profile_id"], name: "index_projects_on_profile_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "fullname"
-    t.string   "country"
-    t.string   "city"
-    t.string   "phone_number"
-    t.string   "jobtitle"
-    t.string   "jobrole"
-    t.boolean  "admin",                  default: false
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "fullname"
+    t.string "country"
+    t.string "city"
+    t.string "phone_number"
+    t.string "jobtitle"
+    t.string "jobrole"
+    t.boolean "admin", default: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end

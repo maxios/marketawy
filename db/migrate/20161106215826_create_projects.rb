@@ -1,4 +1,4 @@
-class CreateProjects < ActiveRecord::Migration
+class CreateProjects < ActiveRecord::Migration[5.1]
   def change
     create_table :projects do |t|
       t.text :about
@@ -12,7 +12,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :other_link
       t.references :profile, index: true, foreign_key: true
 
-      t.timestamps null: false
+      t.timestamps    
     end
   end
 end
